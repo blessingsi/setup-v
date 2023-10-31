@@ -1,0 +1,17 @@
+__DOMAIN__ {
+
+    root * /srv
+
+    @websockets {
+	header Connection *Upgrade*
+	header Upgrade    websocket
+	path /__PATH__
+    }
+    reverse_proxy @websockets v2ray:10010
+    file_server
+
+    log {
+	output stdout
+    }
+
+}

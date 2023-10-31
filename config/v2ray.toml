@@ -1,0 +1,32 @@
+[log]
+loglevel="info"
+
+[[inbounds]]
+listen="0.0.0.0"
+port=10010
+protocol="vmess"
+settings.clients = [{id = "__UUID__"}]
+
+[inbounds.streamSettings]
+network="ws"
+wsSettings.path="/__PATH__"
+
+
+[[outbounds]]
+protocol = "freedom"
+
+
+#[[outbounds]]
+#protocol = "socks"
+#tag="warp"
+#[outbounds.settings]
+#[[outbounds.settings.servers]]
+#address = "127.0.0.1"
+#port = 40000
+#
+#[routing]
+#domainMatcher="mph"
+#[[routing.rules]]
+#type="field"
+#domains=["openai.com", "challenges.cloudflare.com", "sentry.io"]
+#outboundTag="warp"
